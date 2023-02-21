@@ -1,16 +1,16 @@
-import { Input, Label } from "./Filter.styled";
-import { useDispatch, useSelector } from "react-redux";
-import { getValue } from "redux/selectors";
-import { searchContact } from "redux/filterSlice";
+import { useDispatch, useSelector } from 'react-redux';
+import { searchContact } from 'redux/contacts/filterSlice';
+import { Input, Label } from './Filter.styled';
+import { getValue } from 'redux/contacts/selectors';
 
 function Filter() {
-    const dispatch = useDispatch();
-    const filter = useSelector(getValue);
+  const dispatch = useDispatch();
+  const filter = useSelector(getValue);
 
-    const handelFilter = (event) => {
-        const value = event.target.value;
-        dispatch(searchContact(value));
-    }
+  const handelFilter = event => {
+    const value = event.target.value;
+    dispatch(searchContact(value));
+  };
 
   return (
     <Label>

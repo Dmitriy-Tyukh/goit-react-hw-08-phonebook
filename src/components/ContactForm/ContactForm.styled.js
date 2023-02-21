@@ -1,9 +1,17 @@
 import styled from '@emotion/styled';
 import { Form, Field, ErrorMessage } from 'formik';
 
+export const Wraper = styled.div`
+display: flex;
+justify-content: center;
+`
+export const BoxContact = styled.div`
+margin-top: 50px;
+
+`
 export const FormStyled = styled(Form)`
   float: left;
-  margin-right: 30px;
+  margin-right: 64px;
 `;
 
 export const FieldStyled = styled(Field)`
@@ -31,4 +39,8 @@ export const ButtonSubmit = styled.button`
   background: #f8a035;
   color: #fff;
   border: none;
+  border-radius: 6px;
+  &:hover {
+    background-color: orangered;
+  }
 `;

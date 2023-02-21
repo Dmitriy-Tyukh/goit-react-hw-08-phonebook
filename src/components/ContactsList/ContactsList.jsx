@@ -1,9 +1,11 @@
 import { List, Link, ButtonDelete, TextStyled } from './ContactsList.styled';
+import { stringAvatar } from '../Utils/contactsAvatar';
 import { useDispatch, useSelector } from 'react-redux';
-import { getContacts, getValue } from 'redux/selectors';
-import { deleteContacts } from 'redux/operations';
-import { MdClose } from 'react-icons/md';
+import { getContacts, getValue } from 'redux/contacts/selectors';
+import { deleteContacts } from 'redux/contacts/operations';
+import { MdDeleteForever } from 'react-icons/md';
 import { toast } from 'react-hot-toast';
+import { Avatar } from '@mui/material';
 
 const ContactsList = () => {
   const { items, isLoading, error } = useSelector(getContacts);
@@ -15,8 +17,8 @@ const ContactsList = () => {
   );
 
   const handleDelete = Id => {
-      dispatch(deleteContacts(Id));
-      toast.success('Ви видалили контакт!');
+    dispatch(deleteContacts(Id));
+    toast.success('Ви видалили контакт!');
   };
 
   return (
@@ -28,13 +30,17 @@ const ContactsList = () => {
         <Link key={id}>
           <div className="wraper">
             <div className="contact">
-              <h2 className="contactName">{name}</h2>
+              <div className="contactWraper">
+                <Avatar {...stringAvatar(`${name}`)} />
+                <h2 className="contactName">{name}</h2>
+              </div>
               <p>{number}</p>
+
+              <ButtonDelete type="button" onClick={() => handleDelete(id)}>
+                <MdDeleteForever size={16} />
+                <TextStyled> Delete </TextStyled>
+              </ButtonDelete>
             </div>
-            <ButtonDelete type="button" onClick={() => handleDelete(id)}>
-              <MdClose size={16} />
-              <TextStyled> Delete </TextStyled>
-            </ButtonDelete>
           </div>
         </Link>
       ))}

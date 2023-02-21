@@ -11,13 +11,16 @@ export const Link = styled.li`
 export const ButtonDelete = styled.button`
   display: flex;
   align-items: center;
-  width:80px;
-  height:30px;
-  margin-top: 16px;
-  padding: 10px 10px;
+  width: 80px;
+  height: 30px;
+  padding: 10px;
   background: #f8a035;
   color: #fff;
   border: none;
+  border-radius: 6px;
+  &:hover {
+    background-color: orangered;
+  }
 `;
 export const TextStyled = styled.span`
  margin-left: 4px;

@@ -1,11 +1,21 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { persistStore, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER} from 'redux-persist';
-import { persistedReducer } from './contactSlice';
-import { filterReduser } from './filterSlice';
+import {
+  persistStore,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist';
+import { authPersistedReducer } from './auth/auth-slice';
+import { contactReduser } from './contacts/contactSlice';
+import { filterReduser } from './contacts/filterSlice';
 
 export const store = configureStore({
   reducer: {
-    contacts: persistedReducer,
+    auth: authPersistedReducer,
+    contacts: contactReduser,
     filter: filterReduser,
   },
 
@@ -17,4 +27,4 @@ export const store = configureStore({
     }),
 });
 
-  export let persistor = persistStore(store);
+export let persistor = persistStore(store);

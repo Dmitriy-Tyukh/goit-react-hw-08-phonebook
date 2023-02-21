@@ -9,22 +9,34 @@ body {
 h1,
 h2,
 h3,
-h4 {
+h4,
+h5 {
     color: #333;
 }
+
 #root {
     padding: 2em;
     overflow: hidden;
 }
 .contact {
     border-bottom: 1px solid #ccc;
-    padding: 20px;
+    padding: 4px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 300px;
 }
+.contactWraper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
+}
+.contactName{
+    padding-left: 16px;
+    font-size: 16px;
+    font-weight: normal;
+}
 .contact h2 {
     margin: 0;
     font-size: 1.2em;
@@ -34,9 +46,38 @@ h4 {
     margin: 0;
 }
 
-ul {
+ul, p {
     padding: 0;
+    margin: 0;
 }
 .wraper{
     display: flex;
+}
+.container {
+    min-height: calc(100vh - 150px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8px;
+}
+.icomHome{
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 15%;
+}
+.icomNav{
+    position: absolute;
+    top: 20%;
+}
+.iconInput{
+position: absolute;
+left:-10%;
+top: 35%;
+}
+.iconPasword{
+    position: absolute;
+    top:40%;
+    right: 2%;
 }
