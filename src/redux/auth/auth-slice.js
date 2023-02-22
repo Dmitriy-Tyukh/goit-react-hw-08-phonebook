@@ -1,7 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
-import persistReducer from "redux-persist/es/persistReducer";
-import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
 import {logIn, logOut, register, fetchCurrentUser} from './auth-operations'
+import persistReducer from "redux-persist/es/persistReducer";
+import { createSlice } from "@reduxjs/toolkit";
+import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
 
 const authInitState = {
   user: { name: null, email: null },
