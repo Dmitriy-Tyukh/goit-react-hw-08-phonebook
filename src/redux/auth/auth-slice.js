@@ -14,44 +14,35 @@ const authSlice = createSlice({
     initialState: authInitState,
     extraReducers: builder => {
         builder
-        .addCase(register.fulfilled, (state, { payload }) => {
+          .addCase(register.fulfilled, (state, { payload }) => {
             state.user = payload.user;
             state.token = payload.token;
             state.isLoggedIn = true;
-            })
-        // [register.fulfilled](state, {payload}) {
-        //     state.user = payload.user;
-        //     state.token = payload.token;
-        //     state.isLoggedIn = true;
-        // }, 
-        .addCase(logIn.fulfilled, (state, { payload }) => {
+          })
+          .addCase(logIn.fulfilled, (state, { payload }) => {
             state.user = payload.user;
             state.token = payload.token;
             state.isLoggedIn = true;
-            })
-        // [logIn.fulfilled](state, { payload }) {
-        //     state.user = payload.user;
-        //     state.token = payload.token;
-        //     state.isLoggedIn = true;
-        // }, 
-        .addCase(logOut.fulfilled, (state, { payload }) => {
+          })
+          .addCase(logOut.pending, state => {
+            state.isLoggedIn = true;
+          })
+          .addCase(logOut.fulfilled, (state, { payload }) => {
             state.user = { name: null, email: null };
             state.token = null;
             state.isLoggedIn = false;
-            })
-        // [logOut.fulfilled](state) {
-        //     state.user = { name: null, email: null };
-        //     state.token = null;
-        //     state.isLoggedIn = false;
-        // }, 
-        .addCase(fetchCurrentUser.fulfilled, (state, { payload }) => {
+          })
+          .addCase(fetchCurrentUser.pending, state => {
+            state.isLoggedIn = true;
+          })
+          .addCase(fetchCurrentUser.fulfilled, (state, { payload }) => {
             state.user = payload;
             state.isLoggedIn = true;
-            })
-        // [fetchCurrentUser.fulfilled](state, {payload}) {
-        //     state.user = payload;
-        //     state.isLoggedIn = true;
-        // } 
+          })
+          .addCase(fetchCurrentUser.rejected, state => {
+            state.isLoggedIn = false;
+            state.token = null;
+          })
     }
 })
 
