@@ -15,8 +15,8 @@ h5 {
 }
 
 #root {
-    padding: 2em;
-    overflow: hidden;
+    /* padding: 2em; */
+    /* overflow: hidden; */
 }
 .contact {
     border-bottom: 1px solid #ccc;
@@ -53,13 +53,13 @@ ul, p {
 .wraper{
     display: flex;
 }
-.container {
+/* .container {
     min-height: calc(100vh - 150px);
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 8px;
-}
+} */
 .icomHome{
     display: inline-block;
     padding: 0;
